@@ -4,11 +4,9 @@ const cors = require('cors');
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const logger = require('./logger/logger');
-const morgan = require('./morgan/morgan');
 
 const employeeRoutes = require('./routes/employeeRoutes')();
 const morganMiddleware = require('./morgan/morgan');
-const { log } = require('winston');
 
 var app = express();
 const originalSend = app.response.send;

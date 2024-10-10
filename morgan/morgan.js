@@ -16,7 +16,7 @@ morgan.token('response-body', (req, res) => {
 });
 
 const moranMiddleware = morgan(
-    'Status\::status, URI\::url, HttpMethod\::method, RequestBody\::request-body, ResponseBody\::response-body, TimeTaken\::response-time(ms)',
+    'Status::status, URI::url, HttpMethod::method, RequestBody::request-body, ResponseBody::response-body, TimeTaken::response-time(ms)',
     {
         stream: {
             write: (message) => logger.info(message.trim()),
