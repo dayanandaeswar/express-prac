@@ -31,5 +31,22 @@ app.get('/', (req, res) => {
 });
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
+
+    const regex = /(?<=number(\":\"))(\w*(?=(\d{4})\"))/gm;
+
+    // Alternative syntax using RegExp constructor
+    // const regex = new RegExp('(?<=number(\\":\\"))(\\w*(?=(\\d{4})\\"))', 'gm')
+
+    const str = `{"number":"9988881063"}`;
+
+    // Reset `lastIndex` if this regex is defined globally
+    // regex.lastIndex = 0;
+
+    let m = regex.exec(str);
+
+    console.log(str.replace(m[2], ((m2) =>
+        "*".repeat(m2.length)
+    )));
+
     logger.info(`App started in port:${port}`);
 })
